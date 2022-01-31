@@ -354,7 +354,9 @@ class MyPlot(object):
        
 if __name__ == '__main__':
     #path = '/home/pi/speedfiles'
-    path = '/home/klein/speedfiles'
+    #path = '/home/klein/speedfiles'
+    
+    path = '/Users/klein/scratch/'
     #file = 'misk_2022-01-24speedfile.csv'
     file = 'LC23_2022-01-28speedfile.csv'
     token ='/home/klein/git/speedtest/src/LCWA_d.txt'
@@ -363,5 +365,5 @@ if __name__ == '__main__':
     PlotFlag = True # flag to plot or not on screen
     MP = MyPlot(path,file,token,PlotFlag)
     MP.ReadTestData()    #MP.ReadTestData(legend)
-    MP.Analyze('/home/klein/scratch/text.txt')
+    MP.Analyze('/Users/klein/scratch/text.txt')
     MP.Analyze()
