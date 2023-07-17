@@ -9,8 +9,8 @@
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
 #from builtins import True
-# this is temprary new version 2_0 which has a switch between iperf and speedtest every 
-# 10 minutes
+# this is a copy of test1_3 from master @7/17/2023
+# this will allow me to do the LCWA transition without interruptions
 
   
 
