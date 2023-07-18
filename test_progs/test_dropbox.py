@@ -172,8 +172,8 @@ if __name__ == '__main__':
     import os.path
     loop_time       = 600 # every loop_time we will read a file and copy it locally, the time is in seconds
     homedir         = os.path.expanduser('~')
-    tokenfile       = homedir+'/git/LCWA/src/LCWA_d.txt' # the name and path of the dropbox creds
-    #tokenfile       = homedir+'/git/LCWA/src/LCWA_a.txt' # the name and path of the dropbox creds
+    #tokenfile       = homedir+'/git/LCWA/src/LCWA_d.txt' # the name and path of the dropbox creds
+    tokenfile       = homedir+'/git/LCWA/src/LCWA_a.txt' # the name and path of the dropbox creds
     #dropbox_dir     = '/LCWA/ALL_LCWA/' # dir on dropbox
     dropbox_dir     = '/LCWA/LC99_/'
     #dropbox_file    = 'LCWA_TOTAL_2023-05-07speedfile.pdf' # name of file
