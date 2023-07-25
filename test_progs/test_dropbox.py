@@ -23,7 +23,7 @@ class TestDropBox(object):
         self.DropBoxDir     = dropbox_dir
         self.LocalDir       = local_dir
 
-    def ConnectDropbox(self):
+    def ConnectDropboxOld(self):
         """
         here we establish connection to the dropbox account
         """
@@ -49,6 +49,7 @@ class TestDropBox(object):
         APP_KEY = temp_buf[0]
         APP_SECRET = temp_buf[1]
         REFRESH_TOKEN = temp_buf[2]
+
         self.dbx = dropbox.Dropbox(
             app_key = APP_KEY,
             app_secret = APP_SECRET,
@@ -64,7 +65,7 @@ class TestDropBox(object):
 
         return
 
-    def ConnectDropboxNew(self):
+    def ConnectDropbox(self):
         """
         here we establish connection to the dropbox account
         """
@@ -106,6 +107,11 @@ class TestDropBox(object):
             APP_KEY = temp_buf[0]
             APP_SECRET = temp_buf[1]
             REFRESH_TOKEN = temp_buf[2]
+
+            
+
+
+
             self.dbx = dropbox.Dropbox(
                 app_key = APP_KEY,
                 app_secret = APP_SECRET,
@@ -124,7 +130,7 @@ class TestDropBox(object):
         print (self.myaccount.email)
         print('\n\n ***************************dropbox*******************\n')
 
-        return
+        return self.dbx
 
 
     def DropFileExists(self,path):
@@ -177,10 +183,10 @@ if __name__ == '__main__':
     #dropbox_dir     = '/LCWA/ALL_LCWA/' # dir on dropbox
     dropbox_dir     = '/LCWA/LC99_/'
     #dropbox_file    = 'LCWA_TOTAL_2023-05-07speedfile.pdf' # name of file
-    dropbox_file    = 'LC99_2023-05-07speedfile_test.pdf'
+    dropbox_file    = 'LC99_2023-05-07speedfile.pdf'
     local_dir       = homedir+'/scratch/'
 
 
     TDB = TestDropBox(local_dir = local_dir ,dropbox_dir = dropbox_dir , dropbox_file = dropbox_file,  tokenfile = tokenfile ,loop_time = loop_time)
-    TDB.ConnectDropboxNew()
+    TDB.ConnectDropbox()
     TDB.MainLoop()
