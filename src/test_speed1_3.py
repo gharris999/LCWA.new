@@ -54,6 +54,7 @@ import argparse as argp  # we want to use CLI
 import platform # need to determine the OS
 import subprocess as sp
 import dropbox
+import ConnectDropbox as CD
 import socket # needed for hostname id
 import PlotClass as PC # new plot version
 import uuid
@@ -221,7 +222,7 @@ class test_speed1():
                 
 
     
-    def ConnectDropBox(self):
+    def ConnectDropBoxOld(self):
         """
         here we establish connection to the dropbox account
         """
@@ -246,7 +247,19 @@ class test_speed1():
         print( self.myaccount.name.surname , self.myaccount.name.given_name)
         print (self.myaccount.email)
         print('\n\n ***************************dropbox*******************\n')
-        
+
+    def ConnectDropBox(self):
+        """This instantiate the ConnectDropbox class"""
+
+        self.dbx =  CD.DropBox(dropbox_file=self.cryptofile.strip('\n'))  
+                
+                
+        self.myaccount = self.dbx.users_get_current_account()
+        print('***************************dropbox*******************\n\n\n')
+        print( self.myaccount.name.surname , self.myaccount.name.given_name)
+        print (self.myaccount.email)
+        print('\n\n ***************************dropbox*******************\n')
+ 
         
     def WriteHeader(self):   
         '''
@@ -282,7 +295,7 @@ class test_speed1():
         """
         keep track of the updates
         """
-        self.vs = '8.02.02'
+        self.vs = '9.00.01'
  
         
         print(' History')
@@ -329,6 +342,7 @@ class test_speed1():
         print('Version 8.02.01', 'now better reflection on what is going on with iperf, and new more granular config file treatment ')
         print('Version 8.02.02', 'with Gordon time mods ')
         print('Version 8.02.03', 'added an try clause in create iperf output to catch connection problems')
+        print('Version 9.00.01', 'changed connection to dropbox, now handled through class DropBox')
          
         print('\n\n\n')
         

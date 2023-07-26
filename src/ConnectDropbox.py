@@ -14,7 +14,7 @@ import time
 from pathlib import Path 
 from os.path import expanduser
 
-class TestDropBox(object):
+class DropBox(object):
 
     def __init__(self,local_dir = None , dropbox_dir = None , dropbox_file = None, tokenfile = None, loop_time = None):
         self.LoopTime        = loop_time
@@ -187,6 +187,6 @@ if __name__ == '__main__':
     local_dir       = homedir+'/scratch/'
 
 
-    TDB = TestDropBox(local_dir = local_dir ,dropbox_dir = dropbox_dir , dropbox_file = dropbox_file,  tokenfile = tokenfile ,loop_time = loop_time)
+    TDB = DropBox(local_dir = local_dir ,dropbox_dir = dropbox_dir , dropbox_file = dropbox_file,  tokenfile = tokenfile ,loop_time = loop_time)
     TDB.ConnectDropbox()
     TDB.MainLoop()
