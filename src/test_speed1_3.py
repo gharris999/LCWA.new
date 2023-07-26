@@ -251,7 +251,8 @@ class test_speed1():
     def ConnectDropBox(self):
         """This instantiate the ConnectDropbox class"""
 
-        self.dbx =  CD.DropBox(dropbox_file=self.cryptofile.strip('\n'))  
+        temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
+        self.dbx = temp.ConnectDropbox()
                 
                 
         self.myaccount = self.dbx.users_get_current_account()
@@ -259,7 +260,8 @@ class test_speed1():
         print( self.myaccount.name.surname , self.myaccount.name.given_name)
         print (self.myaccount.email)
         print('\n\n ***************************dropbox*******************\n')
- 
+
+        return self.dbx
         
     def WriteHeader(self):   
         '''

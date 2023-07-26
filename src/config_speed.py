@@ -203,6 +203,8 @@ class MyConfig():
         # get hostname
         test_key ='nondefault'
         self.host = host = socket.gethostname()
+        if self.host == "solveig.local":  # so I can test the program from my laptop, this is a cludge and I need to change this
+            self.host = host = "LC04"
         if host in jsondict["ClusterControl"].keys():
             print(jsondict["ClusterControl"][host])
             #check if we have nondefault values:
