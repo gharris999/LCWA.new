@@ -261,7 +261,8 @@ class test_speed1():
         print (self.myaccount.email)
         print('\n\n ***************************dropbox*******************\n')
 
-        return self.dbx
+
+        return
         
     def WriteHeader(self):   
         '''

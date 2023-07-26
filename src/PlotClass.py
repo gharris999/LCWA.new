@@ -19,6 +19,7 @@ import sys
 import os.path
 import dropbox
 import pandas as pd
+import ConnectDropbox as CD
 
 
 
@@ -337,7 +338,7 @@ class MyPlot(object):
             print('no file:   ' , filename)
             sys.exit(0)
 
-    def ConnectDropbox(self):
+    def ConnectDropboxOld(self):
         """
         here we establish connection to the dropbox account
         """
@@ -361,6 +362,24 @@ class MyPlot(object):
         print( self.myaccount.name.surname , self.myaccount.name.given_name)
         print (self.myaccount.email)
         print('\n\n ***************************dropbox*******************\n')
+
+
+    def ConnectDropBox(self):
+        """This instantiate the ConnectDropbox class"""
+
+        temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
+        self.dbx = temp.ConnectDropbox()
+                
+                
+        self.myaccount = self.dbx.users_get_current_account()
+        print('***************************dropbox*******************\n\n\n')
+        print( self.myaccount.name.surname , self.myaccount.name.given_name)
+        print (self.myaccount.email)
+        print('\n\n ***************************dropbox*******************\n')
+
+
+        return
+ 
 
     def DigIP(self):
         """ gets the ipaddress of the location"""

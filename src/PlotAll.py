@@ -18,6 +18,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import ast
 from os.path import expanduser
+import ConnectDropbox as CD
 
 
 
@@ -43,7 +44,7 @@ class PlotAll(object):
         
         
  
-    def ConnectDropbox(self):
+    def ConnectDropboxOld(self):
         """
         here we establish connection to the dropbox account
         """
@@ -68,7 +69,22 @@ class PlotAll(object):
         print (self.myaccount.email)
         print('\n\n ***************************dropbox*******************\n')
 
+    def ConnectDropBox(self):
+        """This instantiate the ConnectDropbox class"""
 
+        temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
+        self.dbx = temp.ConnectDropbox()
+                
+                
+        self.myaccount = self.dbx.users_get_current_account()
+        print('***************************dropbox*******************\n\n\n')
+        print( self.myaccount.name.surname , self.myaccount.name.given_name)
+        print (self.myaccount.email)
+        print('\n\n ***************************dropbox*******************\n')
+
+
+        return
+ 
     def GetFiles(self):
         """
         This loops over the list of dropbox directories and gets the files for the current day if available
