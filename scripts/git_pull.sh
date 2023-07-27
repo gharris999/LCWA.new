@@ -18,7 +18,7 @@ if [ ''$HOSTNAME'' = ''LC99'' ]; then
 else
 	git pull
 	echo "updating dropbox"
-	pip3 install --upgrade dropbox
+	pip3 install -U dropbox
 	echo "updated dropbox"
     cd /home/pi
 fi
