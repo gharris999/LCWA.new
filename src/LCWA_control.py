@@ -34,7 +34,7 @@ class MyControl(object):
         self.hi_range = 25  # number of boxes we have out +1
 
         
-        self.old   # flag true uses old dropbox
+        self.old = old  # flag true uses old dropbox
         self.backupdir = backupdir
         
         self.DoPlotting()
@@ -179,7 +179,7 @@ class MyControl(object):
         self.PA =PA =PL.PlotAll(token_file,dirlist,filedate = '2023-04-07')
         #self.PA =PA =PL.PlotAll(token_file,dirlist)
 
-        PA.ConnectDropbox()
+        PA.ConnectDropBox()
         PA.GetFiles() 
         PA.PushFileDropbox()
 
