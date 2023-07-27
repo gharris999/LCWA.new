@@ -72,7 +72,7 @@ class PlotAll(object):
     def ConnectDropBox(self):
         """This instantiate the ConnectDropbox class"""
 
-        temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
+        temp =  CD.DropBox(tokenfile=self.TokenFile.strip('\n'))  
         self.dbx = temp.ConnectDropbox()
                 
                 
