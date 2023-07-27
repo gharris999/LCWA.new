@@ -1046,7 +1046,7 @@ class test_speed1():
             #f.close()
             
             a.ReadTestData()
-            a.ConnectDropbox()
+            a.ConnectDropbox(tokenfile=self.cryptofile.strip('\n'))
             print(self.dropdir)
             a.PushFileDropbox(self.dropdir)
             if textflag:
