@@ -21,7 +21,7 @@ class MyControl(object):
     '''
 
 
-    def __init__(self, backupdir):
+    def __init__(self, backupdir,old = True):
         '''
         Constructor
         '''
@@ -34,7 +34,7 @@ class MyControl(object):
         self.hi_range = 25  # number of boxes we have out +1
 
         
-        
+        self.old   # flag true uses old dropbox
         self.backupdir = backupdir
         
         self.DoPlotting()
@@ -167,7 +167,14 @@ class MyControl(object):
                 temp1 = temp+str(k)+'_'
             
             dirlist.append(temp1)
-        token_file = '/git/speedtest/src/LCWA_d.txt'
+        
+        if(self.old):
+            token_file = '/git/speedtest/src/LCWA_d.txt'
+            print('old dropbox system')
+        else:
+            token_file = '/git/speedtest/src/LCWA_a.txt'
+            print('new dropbox system')
+
         #tempdir = 'scratch'
         self.PA =PA =PL.PlotAll(token_file,dirlist,filedate = '2023-04-07')
         #self.PA =PA =PL.PlotAll(token_file,dirlist)
@@ -270,7 +277,7 @@ if __name__ == '__main__':
     recipient_list = home+'/private/LCWA/recipient_list.txt'
     backupdir = home+'/LCWA_backup/'
     
-    MC = MyControl(backupdir)
+    MC = MyControl(backupdir,old=True)
     
     #Here we check if we are close to a time window
     timestamp = datetime.datetime.now().time() # Throw away the date information
