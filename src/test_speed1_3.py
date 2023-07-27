@@ -1035,7 +1035,7 @@ class test_speed1():
             count = 0
             for line in f:
                 count += 1
-        print (count)
+        print ('do plots',count)
         
         
         #count = len(open(temp_file).readlines(  ))
@@ -1047,7 +1047,7 @@ class test_speed1():
             
             a.ReadTestData()
             a.ConnectDropbox(tokenfile=self.cryptofile.strip('\n'))
-            print(self.dropdir)
+            print('dropbox dir for plot ',self.dropdir)
             a.PushFileDropbox(self.dropdir)
             if textflag:
                 a.Analyze(filename = self.textfile)
