@@ -573,8 +573,8 @@
 
                     },
 
-       "PandaAir.local" : {
-            "runmode" : "Speedtest",
+       "solveig.local" : {
+            "runmode" : "Both",
 
             "nondefault" : {
 

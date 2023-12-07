@@ -121,6 +121,8 @@ class PlotHistory(object):
             b=a+dt.timedelta(1)
             self.end_time=dt.datetime.strftime(b,self.fmt)
             self.end_time_plot = dt.datetime.strftime(a,self.fmt)
+        else:
+            self.end_time_plot = self.end_time
         #if self.begin_time == 'month':
         #    self.end_time = dt.datetime.strptime(self.end_time,self.fmt)-dt.timedelta(30)
 
@@ -434,11 +436,11 @@ class PlotHistory(object):
 if __name__ == "__main__":  
     config_file =  'PlotHistory.json'
     speed_box = None #creates loop
-    #speed_box = 'LC12' # sngle speedbox
-    begin_time="2023-05-16"
+    speed_box = 'LC03' # sngle speedbox
+    begin_time="2023-11-20"
     #begin_time="month"
     end_time = 'Today'
-    #end_time = "2023-02-27"
+    #end_time = "2023-10-27"
     PH = PlotHistory(config_file = config_file , begin_time=begin_time,end_time = end_time,speed_box = speed_box)
     PH.run_program()
    

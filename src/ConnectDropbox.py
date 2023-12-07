@@ -69,6 +69,7 @@ class DropBox(object):
         """
         here we establish connection to the dropbox account
         """
+        print("at connect dropbox")
         f=open(self.TokenFile,"r")
 
         # now we branch out depending on which keyfile we are using:
@@ -83,6 +84,7 @@ class DropBox(object):
          
          #connect to dropbox 
             self.dbx=dropbox.Dropbox(self.data.strip('\n'))
+            print("self.dbx",self.dbx)
 
  
         elif 'LCWA_a.txt'  in self.TokenFile:
@@ -117,6 +119,8 @@ class DropBox(object):
                 app_secret = APP_SECRET,
                 oauth2_refresh_token = REFRESH_TOKEN
                 )
+            print("self.dbx",self.dbx)
+
         
         else:
             print("wrong keyfile")

@@ -453,11 +453,11 @@ class test_speed1():
         if (args.dpfile == None and self.cryptofile == None):
             self.Logging('You need to provide path for cryptofile, will not connect to dropbox')
 
-        if(self.cryptofile[0] == 'L'): # need to add the system path
-            self.cryptofile = self.speedtest_srcdir + self.cryptofile
-            self.ConnectDropBox() # establish the contact to dropbox
-        else:
-            self.ConnectDropBox()
+        #if(self.cryptofile[0] == 'L'): # need to add the system path
+        #   self.cryptofile = self.speedtest_srcdir + self.cryptofile
+         #   self.ConnectDropBox() # establish the contact to dropbox
+        #else:
+         #   self.ConnectDropBox()
  
         if(args.time != None):
                 self.loop_time = int(args.time)*60 # time between speedtests
@@ -592,6 +592,9 @@ class test_speed1():
             
                 #if (counter==50):
                 if self.WriteTimer() or self.testdb and not self.FlushTime():                   # WGH mod: test dropbox posting immediatly for debugging purposes
+                    if(self.testdb):
+                        print('Warning, test mode , you hit the dropbox continuosly,every 5 seconds')
+                        time.sleep(5)
                     # we write always around xx:30 
  
                     
@@ -616,8 +619,9 @@ class test_speed1():
                             self.DoPlots(textflag = False)
                     except:
                         self.Logging(' Cannot connect to dropbox, will try in 10 minues again')
-
-                        time.sleep(10*60)
+                        time.sleep(10)
+ 
+                        #time.sleep(10*60)
                     #counter = 0 
                 elif self.FlushTime(): # It is close to midnight, we flush the last file and exit to ensure we laod trhe latest software
                     try:
@@ -859,8 +863,18 @@ class test_speed1():
         #First rempve all double quotes
         tt=inc1.replace('"','')
         inc=tt.split(',')
+
+        print("hello from createoutput length ",len(inc))
+        #for k in range(len(inc)):
+        #    print(inc[k])
         if(len(inc) == 12 ):  #this would be the case for the latest speetetst version
             inc.pop() #drop last
+
+        if(len(inc)== 22):
+            #remove 22-11 elements
+            for k in range(11):
+                inc.pop()
+            print(len(inc), ' \n',inc)
  
         # cehck data integrity
         if(len(inc) < 2):
@@ -973,6 +987,9 @@ class test_speed1():
         gets the host info
         """
         a = socket.gethostname()
+        #a = 'LC04'
+        #print('$$$$$$$$$$$$$$$$$$$warning warning warning this is debug version $$$$$$$$$$$$')
+        #print('$$$$$$$$$$$$$$$$$$$wline number 977 fixed hostname LC04 $$$$$$$$$$$$ \n')
         #self.my_ip = socket.gethostbyname(a)
         
         # now chek the hostname if it is >4 characters strip rest
@@ -1046,7 +1063,8 @@ class test_speed1():
             #f.close()
             
             a.ReadTestData()
-            a.ConnectDropbox(tokenfile=self.cryptofile.strip('\n'))
+            #a.ConnectDropbox()
+            #a.ConnectDropbox(tokenfile=self.cryptofile.strip('\n'))
             print('dropbox dir for plot ',self.dropdir)
             a.PushFileDropbox(self.dropdir)
             if textflag:
@@ -1128,7 +1146,7 @@ if __name__ == '__main__':
    # server1 = 'albuquerque.speedtest.centurylink.net:8080'
     ts = test_speed1(server=server1,chosentime=60)
     ts.GetArguments()  #commandline args
-    ts.QueueRuntime()
+    ###########################ts.QueueRuntime()
     ts.OpenFile()  #output file
     
 #    ts.GetArguments()

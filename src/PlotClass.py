@@ -393,8 +393,8 @@ class MyPlot(object):
         f =open(self.output,"rb")
         #print('plotclass1  ',dropdir,self.output,self.dropbox_name)
 
-        self.dbx.files_upload(f.read(),dropdir+self.dropbox_name,mode=dropbox.files.WriteMode('overwrite', None))
-
+        a = self.dbx.files_upload(f.read(),dropdir+self.dropbox_name,mode=dropbox.files.WriteMode('overwrite', None))
+        return
        
 if __name__ == '__main__':
     #path = '/home/pi/speedfiles'
