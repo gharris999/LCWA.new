@@ -29,13 +29,16 @@ class MyPlot(object):
     '''
 
 
-    def __init__(self, path , filename , token , PlotFlag, runmode = 'Iperf'):
+    def __init__(self, path , filename , token , PlotFlag, runmode = 'Iperf',mydropbox = None):
         '''
         Constructor
         file: is the speedtest filename
         token: is the dropbox file
         runmode is default iperf, however if it is both it will
         plot both resulst on same plot
+
+        it now has a mydropbox = None statement. If this is None we instantiate a new ConnectDropBox
+        otherwise, mydropbox is the one from a calling routine
         '''
         
         
@@ -43,6 +46,8 @@ class MyPlot(object):
         # First check for python version, this is important for the matlob read part
         self.MyPythonVersion()
         
+
+        self.MyDropBox=mydropbox
         #now check if file is available, if not we exit
         
         file = path+'/'+filename
@@ -366,9 +371,11 @@ class MyPlot(object):
 
     def ConnectDropBox(self):
         """This instantiate the ConnectDropbox class"""
-
-        temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
-        self.dbx = temp.ConnectDropbox()
+        if(self.MyDropBox == None):  # we have no dropbox instance yet
+            temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
+            self.dbx = temp.ConnectDropbox()
+        else:
+            self.dbx = self.MyDropBox
                 
                 
         self.myaccount = self.dbx.users_get_current_account()
