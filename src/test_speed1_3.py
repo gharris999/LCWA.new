@@ -587,7 +587,7 @@ class test_speed1():
         
         while(1):
             self.Run()
-            if(self.ConnectDropBox):
+            if(self.ConnectDropBox()):
                 counter = counter + 1
             
                 #if (counter==50):
