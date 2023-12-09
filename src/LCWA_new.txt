@@ -1,0 +1,13 @@
+  "access_token": "sl.BeEldj6IAn3QumaOliBbFVpDSKyc-rtSiuNOZEEAl4IEeEYFb2VERkK-iZ2slZxuAboGRKrlLMS72jiXQa6TRHLEKUSMQzBkUMAGI6LikOVtasbWYewcx0KfPcvFkirugfCF268",
+  "token_type": "bearer",
+  "expires_in": 14399,
+  "refresh_token": "E30KegrdU_oAAAAAAAAAATnRz1Cgs2vj6GgGlkRIHsHpJ4Wdz9yhRHwX35tQp81l",
+  "scope": "account_info.read files.content.read files.content.write files.metadata.read files.metadata.write",
+  "uid": "2905572976",
+  "account_id": "dbid:AAAqXmHWSt626WkNC7eKStuyrjxz0BcZXfs"
+
+
+  #the real stuff
+        APP_KEY = '70yem8c9kt0r29f'
+        APP_SECRET = 'sbm9401ugpfasgp'
+        REFRESH_TOKEN = 'E30KegrdU_oAAAAAAAAAATnRz1Cgs2vj6GgGlkRIHsHpJ4Wdz9yhRHwX35tQp81l'

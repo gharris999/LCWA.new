@@ -1,0 +1,459 @@
+3
+ we have python 3
+
+ 
+ 
+
+****************************************************************** 
+
+hello this is the LCWA speedtest version 3
+Written by Andi Klein using the CLI from speedtest
+Run date 2023-08-26 17:07:03.653121 
+
+Running from  63.233.221.150
+
+ 
+****************************************************************** 
+
+
+ 
+ 
+
+ History
+version 2.02   trying to catch the random bad data sent by the CLI
+version 2.03  fixed conversion problem for N/A
+        version 2.03.1  fixed rasp problem wit -L and -V
+version 3.01.0 connect to dropbox and store file every 50 entries
+        3.01.1 added header line to output
+version 3.02.0  - made cybermesa default server unless requested 
+                     - at midnight we open a new file
+version 3.02.1  print some info on dropbox
+version 3.02.2  write dropbox file around the half hour mark
+Version 3.02.3  Included a header which is needed for the raspberry pi to start test_speed1 at boot
+                     - gives an acoustic signal at startup
+Version 3.03.0  added a Debug switch
+Version 3.04.0 get host name and add it to the filename
+Version 4.00.0 runs on python3 now
+Version 5.00.0 automatically does plots and ships them to dropbox
+Version 5.01.0 new dropbox configuration
+Version 5.01.1 added lookup of ip address
+Version 5.01.2 stop at 23:45 to 24:00, flush data and exit
+Version 5.01.3 Create textfile with important values
+Version 5.01.4 test of distro
+Version 5.01.5 timestamp in log file
+Version 5.01.6 added close_fds=True to popen
+Version 5.01.7 added using timeout command
+Version 5.01.8 better error message
+Version 5.01.9 date and time output
+Version 5.01.10 catching network problems
+Version 5.01.11 force LC12 to connect to NMSURF, done in the arg parse section
+Version 5.01.12 force LC24 to connect to NMSURF, done in the arg parse section
+Version 6.00.01 now with latency measurement to currently cybermese
+Version 6.00.02 minor change in PlotCalss do do the scaling on the single pdf files better
+Version 7.00.01 major upgrade , replace speetetst with iperf
+Version 7.01.02 added config file
+Version 7.01.03 added Gordon wish for /etc location for config file
+Version 7.01.04 Revamped command line and arparse section
+Version 7.01.05 added a call to ntp server, start of syncing the speedboxes
+Version 7.01.06 add a line to txt file to write runmode
+Version 7.02.01 modfy code such that it now reads in a second file to determine what host is running what 
+Version 8.01.01 Code which allow you to switch between speedtest and iperf either pretermined or random 
+Version 8.01.02 replace server name with speedtest in output csv file 
+Version 8.02.01 now better reflection on what is going on with iperf, and new more granular config file treatment 
+Version 8.02.02 with Gordon time mods 
+Version 8.02.03 added an try clause in create iperf output to catch connection problems
+Version 9.00.01 changed connection to dropbox, now handled through class DropBox
+
+
+
+
+Directory Name:      /Users/klein/git/LCWA/src
+reading config file  /Users/klein/git/LCWA/config/test_speed_cfg.json
+{'runmode': 'Both', 'nondefault': {'server_ip': '63.229.162.245', 'serverid': 10056, 'time_window': 10, 'latency_ip': '65.19.14.51', 'iperf_serverport': '5201', 'iperf_serverip': '63.229.162.245', 'iperf_duration': 30, 'iperf_numstreams': 2, 'iperf_blksize': 1024, 'iperf_latency_ip': '65.19.14.51', 'iperf_time_window': 10, 'iperf_reverse': False, 'random': False}}
+end of prog Both
+
+
+ ***************** configuration**************
+
+ We are running on platform  Darwin 
+
+Sourcedir             /Users/klein/git/LCWA/src/
+Datadir               /Users/klein/speedfiles/
+timeout command       /usr/local/bin/timeout
+speedtest command     /usr/local/bin/speedtest
+
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!     run parameters 
+
+ Running  [1m Both [0m   mode  
+
+Iperf server              63.229.162.245
+Iperf Port                5201
+Iperf Duration            30
+Iperf Block size          1024
+Iperf Number of streams   2
+Iperf running reverse     False 
+
+
+Latency server        65.19.14.51
+Server IP             63.229.162.245
+Server ID             10056
+times intervals       10
+***************************** end of configuration***************
+
+
+so
+/LCWA/ROTW/
+/Users/klein/speedfiles/solv_2023-08-26speedfile.csv
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '65.3206', '10.7777', '0', '2942705', '2102717', '22732506', '27392675', 'https://www.speedtest.net/result/c/81b041ff-309a-4857-b4a4-be9827703047']
+['26/08/2023', '17:07:28', 'Speed', 10056, 65.3206, 10.7777, 0.0, 23.54164, 16.821736, 22.006412700284272]
+26/08/2023,17:07:28,Speed,10056,65.3206,10.7777,0.0,23.54164,16.821736,22.006412700284272
+
+26/08/2023,17:07:28,Speed,10056,65.3206,10.7777,0.0,23.54164,16.821736,22.006412700284272
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '17:17:39', 'iperf3', 'xxxx', 'xxxx', '0', '0', 16.78696011911744, 16.872067849554735, 0, 0, 21.52785548462691, 26.3994957696308]
+ <class 'str'>
+26/08/2023,17:18:41, iperf3, xxxx, xxxx,0.0,0.0,21.52785548462691,16.872067849554735,0.0,0.0
+
+26/08/2023,17:18:41, iperf3, xxxx, xxxx,0.0,0.0,21.52785548462691,16.872067849554735,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '85.2859', '2.95675', '0', '2888853', '2044818', '36609042', '27717832', 'https://www.speedtest.net/result/c/2a1f8993-fcad-4c63-a40f-7cd0646b9b40']
+['26/08/2023', '17:29:12', 'Speed', 10056, 85.2859, 2.95675, 0.0, 23.110824, 16.358544, 26.727154082618654]
+26/08/2023,17:29:12,Speed,10056,85.2859,2.95675,0.0,23.110824,16.358544,26.727154082618654
+
+26/08/2023,17:29:12,Speed,10056,85.2859,2.95675,0.0,23.110824,16.358544,26.727154082618654
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 17:29:23.068111  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '17:39:33', 'iperf3', 'xxxx', 'xxxx', '0', '0', 19.524215281836575, 19.868411301428136, 0, 0, 17.777968590824393, 22.666456624168614]
+ <class 'str'>
+26/08/2023,17:40:36, iperf3, xxxx, xxxx,0.0,0.0,17.777968590824393,19.868411301428136,0.0,0.0
+
+26/08/2023,17:40:36, iperf3, xxxx, xxxx,0.0,0.0,17.777968590824393,19.868411301428136,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '67.1341', '7.08925', '0', '3001044', '2026753', '24170304', '25078153', 'https://www.speedtest.net/result/c/dd84053c-04f9-4790-add9-0a1fc904a672']
+['26/08/2023', '17:51:01', 'Speed', 10056, 67.1341, 7.08925, 0.0, 24.008352, 16.214024, 20.09104168973863]
+26/08/2023,17:51:01,Speed,10056,67.1341,7.08925,0.0,24.008352,16.214024,20.09104168973863
+
+26/08/2023,17:51:01,Speed,10056,67.1341,7.08925,0.0,24.008352,16.214024,20.09104168973863
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '18:01:12', 'iperf3', 'xxxx', 'xxxx', '0', '0', 23.045507016619148, 23.195838390946182, 0, 0, 16.747154568237296, 21.333071647654457]
+ <class 'str'>
+26/08/2023,18:02:15, iperf3, xxxx, xxxx,0.0,0.0,16.747154568237296,23.195838390946182,0.0,0.0
+
+26/08/2023,18:02:15, iperf3, xxxx, xxxx,0.0,0.0,16.747154568237296,23.195838390946182,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '90.4851', '15.5105', '0', '3119863', '1331666', '44123904', '17799817', 'https://www.speedtest.net/result/c/189f71f9-a572-4735-b9e1-8877346fe9ba']
+['26/08/2023', '18:12:47', 'Speed', 10056, 90.4851, 15.5105, 0.0, 24.958904, 10.653328, 43.20695819333196]
+26/08/2023,18:12:47,Speed,10056,90.4851,15.5105,0.0,24.958904,10.653328,43.20695819333196
+
+26/08/2023,18:12:47,Speed,10056,90.4851,15.5105,0.0,24.958904,10.653328,43.20695819333196
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '18:22:58', 'iperf3', 'xxxx', 'xxxx', '0', '0', 14.11555760286111, 14.324657876048445, 0, 0, 1.8734269046963448, 6.39886228228621]
+ <class 'str'>
+26/08/2023,18:24:04, iperf3, xxxx, xxxx,0.0,0.0,1.8734269046963448,14.324657876048445,0.0,0.0
+
+26/08/2023,18:24:04, iperf3, xxxx, xxxx,0.0,0.0,1.8734269046963448,14.324657876048445,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '65.7552', '4.4865', '0', '3085140', '1878666', '25076800', '22675741', 'https://www.speedtest.net/result/c/375533bc-0776-4f92-a3ad-f0e3e8aff282']
+['26/08/2023', '18:34:30', 'Speed', 10056, 65.7552, 4.4865, 0.0, 24.68112, 15.029328, 125.69116670638323]
+26/08/2023,18:34:30,Speed,10056,65.7552,4.4865,0.0,24.68112,15.029328,125.69116670638323
+
+26/08/2023,18:34:30,Speed,10056,65.7552,4.4865,0.0,24.68112,15.029328,125.69116670638323
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 18:34:42.223459  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '18:44:53', 'iperf3', 'xxxx', 'xxxx', '0', '0', 18.813194085707753, 18.858399091372345, 0, 0, 18.10845184530003, 22.93323013379773]
+ <class 'str'>
+26/08/2023,18:45:55, iperf3, xxxx, xxxx,0.0,0.0,18.10845184530003,18.858399091372345,0.0,0.0
+
+26/08/2023,18:45:55, iperf3, xxxx, xxxx,0.0,0.0,18.10845184530003,18.858399091372345,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '76.309', '4.1105', '0', '3152394', '966411', '28222440', '11613152', 'https://www.speedtest.net/result/c/e5afcd0f-57b0-4a3b-bad1-d90dd2c4c0d8']
+['26/08/2023', '18:56:21', 'Speed', 10056, 76.309, 4.1105, 0.0, 25.219152, 7.731288, 22.91885418817401]
+26/08/2023,18:56:21,Speed,10056,76.309,4.1105,0.0,25.219152,7.731288,22.91885418817401
+
+26/08/2023,18:56:21,Speed,10056,76.309,4.1105,0.0,25.219152,7.731288,22.91885418817401
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '19:06:32', 'iperf3', 'xxxx', 'xxxx', '0', '0', 14.473143593130713, 14.948805078049546, 0, 0, 16.61290741877621, 21.330389739549275]
+ <class 'str'>
+26/08/2023,19:07:35, iperf3, xxxx, xxxx,0.0,0.0,16.61290741877621,14.948805078049546,0.0,0.0
+
+26/08/2023,19:07:35, iperf3, xxxx, xxxx,0.0,0.0,16.61290741877621,14.948805078049546,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '73.3658', '5.968', '0', '3073288', '2395532', '30773400', '34097598', 'https://www.speedtest.net/result/c/b2a6073f-b7e4-453e-92fd-fa83283861d9']
+['26/08/2023', '19:18:03', 'Speed', 10056, 73.3658, 5.968, 0.0, 24.586304, 19.164256, 25.34714569337666]
+26/08/2023,19:18:03,Speed,10056,73.3658,5.968,0.0,24.586304,19.164256,25.34714569337666
+
+26/08/2023,19:18:03,Speed,10056,73.3658,5.968,0.0,24.586304,19.164256,25.34714569337666
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '19:28:14', 'iperf3', 'xxxx', 'xxxx', '0', '0', 16.87065755775575, 16.915583795321336, 0, 0, 9.663584829925254, 14.39866620355401]
+ <class 'str'>
+26/08/2023,19:29:16, iperf3, xxxx, xxxx,0.0,0.0,9.663584829925254,16.915583795321336,0.0,0.0
+
+26/08/2023,19:29:16, iperf3, xxxx, xxxx,0.0,0.0,9.663584829925254,16.915583795321336,0.0,0.0
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 19:29:16.961381  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '67.6729', '5.22025', '0', '3102990', '2283760', '34692104', '30303236', 'https://www.speedtest.net/result/c/cc51e6af-18ce-488e-ad62-8835c618c296']
+['26/08/2023', '19:39:56', 'Speed', 10056, 67.6729, 5.22025, 0.0, 24.82392, 18.27008, 25.51247102674097]
+26/08/2023,19:39:56,Speed,10056,67.6729,5.22025,0.0,24.82392,18.27008,25.51247102674097
+
+26/08/2023,19:39:56,Speed,10056,67.6729,5.22025,0.0,24.82392,18.27008,25.51247102674097
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '19:50:06', 'iperf3', 'xxxx', 'xxxx', '0', '0', 16.566055642641587, 17.2605649572923, 0, 0, 8.911641800039224, 13.599127842601028]
+ <class 'str'>
+26/08/2023,19:51:11, iperf3, xxxx, xxxx,0.0,0.0,8.911641800039224,17.2605649572923,0.0,0.0
+
+26/08/2023,19:51:11, iperf3, xxxx, xxxx,0.0,0.0,8.911641800039224,17.2605649572923,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '72.6123', '4.18525', '0', '3068224', '2628689', '35943704', '35396372', 'https://www.speedtest.net/result/c/8ae8e7a9-7ae8-4c4b-8f04-06ddf7064ef9']
+['26/08/2023', '20:01:41', 'Speed', 10056, 72.6123, 4.18525, 0.0, 24.545792, 21.029512, 34.190012444742024]
+26/08/2023,20:01:41,Speed,10056,72.6123,4.18525,0.0,24.545792,21.029512,34.190012444742024
+
+26/08/2023,20:01:41,Speed,10056,72.6123,4.18525,0.0,24.545792,21.029512,34.190012444742024
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error Traceback (most recent call last):
+  File "/Users/klein/git/LCWA/src/iperf_client.py", line 154, in RunTestTCP
+    output.append(dt.datetime.fromtimestamp(result.timesecs).strftime('%d/%m/%Y'))
+                                            ^^^^^^^^^^^^^^^
+AttributeError: 'TestResult' object has no attribute 'timesecs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/klein/git/LCWA/src/iperf_client.py", line 274, in <module>
+    mycli.RunTestTCP()
+  File "/Users/klein/git/LCWA/src/iperf_client.py", line 167, in RunTestTCP
+    ts = temp_time.ts() #convert it to timestamp
+         ^^^^^^^^^^^^
+AttributeError: 'datetime.datetime' object has no attribute 'ts'
+
+runloop  <class 'str'>
+no iperf
+26/08/2023,20:11:53
+
+26/08/2023,20:11:53
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '64.4299', '2.46725', '0', '3047726', '1797245', '28819401', '22600431', 'https://www.speedtest.net/result/c/c42e5eeb-dc33-4c87-8861-9ad8259ab8bb']
+['26/08/2023', '20:22:19', 'Speed', 10056, 64.4299, 2.46725, 0.0, 24.381808, 14.37796, 16.89290830399841]
+26/08/2023,20:22:19,Speed,10056,64.4299,2.46725,0.0,24.381808,14.37796,16.89290830399841
+
+26/08/2023,20:22:19,Speed,10056,64.4299,2.46725,0.0,24.381808,14.37796,16.89290830399841
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '20:32:30', 'iperf3', 'xxxx', 'xxxx', '0', '0', 19.00509027320446, 19.08111099267427, 0, 0, 13.905593818242904, 18.664725535211]
+ <class 'str'>
+26/08/2023,20:33:32, iperf3, xxxx, xxxx,0.0,0.0,13.905593818242904,19.08111099267427,0.0,0.0
+
+26/08/2023,20:33:32, iperf3, xxxx, xxxx,0.0,0.0,13.905593818242904,19.08111099267427,0.0,0.0
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 20:33:32.953583  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '74.5016', '12.6365', '1.47783', '2865200', '1480786', '31756304', '19591728', 'https://www.speedtest.net/result/c/365e4a7c-06a2-43b4-a1ad-cc46cf4d9dbf']
+['26/08/2023', '20:44:12', 'Speed', 10056, 74.5016, 12.6365, 1.47783, 22.9216, 11.846288, 25.216608215123415]
+26/08/2023,20:44:12,Speed,10056,74.5016,12.6365,1.47783,22.9216,11.846288,25.216608215123415
+
+26/08/2023,20:44:12,Speed,10056,74.5016,12.6365,1.47783,22.9216,11.846288,25.216608215123415
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '20:54:23', 'iperf3', 'xxxx', 'xxxx', '0', '0', 14.76763530716187, 15.071768479550457, 0, 0, 12.156833190499066, 16.79945625759913]
+ <class 'str'>
+26/08/2023,20:55:27, iperf3, xxxx, xxxx,0.0,0.0,12.156833190499066,15.071768479550457,0.0,0.0
+
+26/08/2023,20:55:27, iperf3, xxxx, xxxx,0.0,0.0,12.156833190499066,15.071768479550457,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '75.0817', '6.5785', '0', '2450139', '1079718', '27013568', '13989716', 'https://www.speedtest.net/result/c/e850083a-cd83-48cb-9ea8-6951c3ff65ec']
+['26/08/2023', '21:06:00', 'Speed', 10056, 75.0817, 6.5785, 0.0, 19.601112, 8.637744, 30.9676666976884]
+26/08/2023,21:06:00,Speed,10056,75.0817,6.5785,0.0,19.601112,8.637744,30.9676666976884
+
+26/08/2023,21:06:00,Speed,10056,75.0817,6.5785,0.0,19.601112,8.637744,30.9676666976884
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '21:16:12', 'iperf3', 'xxxx', 'xxxx', '0', '0', 20.654291758249396, 20.993200647999227, 0, 0, 15.7658877842881, 20.531902259745827]
+ <class 'str'>
+26/08/2023,21:17:15, iperf3, xxxx, xxxx,0.0,0.0,15.7658877842881,20.993200647999227,0.0,0.0
+
+26/08/2023,21:17:15, iperf3, xxxx, xxxx,0.0,0.0,15.7658877842881,20.993200647999227,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '66.7121', '3.95025', '0', '2930867', '2175453', '27873858', '27823791', 'https://www.speedtest.net/result/c/a3878ed4-8beb-451b-9d53-3028108959c1']
+['26/08/2023', '21:27:43', 'Speed', 10056, 66.7121, 3.95025, 0.0, 23.446936, 17.403624, 25.761195831000805]
+26/08/2023,21:27:43,Speed,10056,66.7121,3.95025,0.0,23.446936,17.403624,25.761195831000805
+
+26/08/2023,21:27:43,Speed,10056,66.7121,3.95025,0.0,23.446936,17.403624,25.761195831000805
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 21:27:54.101631  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '21:38:04', 'iperf3', 'xxxx', 'xxxx', '0', '0', 19.719333655999623, 19.79279624450301, 0, 0, 14.018232865578812, 18.661616211266022]
+ <class 'str'>
+26/08/2023,21:39:07, iperf3, xxxx, xxxx,0.0,0.0,14.018232865578812,19.79279624450301,0.0,0.0
+
+26/08/2023,21:39:07, iperf3, xxxx, xxxx,0.0,0.0,14.018232865578812,19.79279624450301,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '74.0622', '4.714', '0', '3009015', '2051886', '35471210', '19512750', 'https://www.speedtest.net/result/c/4c6f3682-d4a6-4aa3-8f70-558fe0b3f1b7']
+['26/08/2023', '21:49:31', 'Speed', 10056, 74.0622, 4.714, 0.0, 24.07212, 16.415088, 20.71516669820994]
+26/08/2023,21:49:31,Speed,10056,74.0622,4.714,0.0,24.07212,16.415088,20.71516669820994
+
+26/08/2023,21:49:31,Speed,10056,74.0622,4.714,0.0,24.07212,16.415088,20.71516669820994
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '21:59:41', 'iperf3', 'xxxx', 'xxxx', '0', '0', 19.85638773285665, 20.11482368701165, 0, 0, 16.47828700971187, 21.06631766800397]
+ <class 'str'>
+26/08/2023,22:00:45, iperf3, xxxx, xxxx,0.0,0.0,16.47828700971187,20.11482368701165,0.0,0.0
+
+26/08/2023,22:00:45, iperf3, xxxx, xxxx,0.0,0.0,16.47828700971187,20.11482368701165,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '71.7571', '6.996', '0', '3045497', '2330570', '42419874', '31846997', 'https://www.speedtest.net/result/c/84a482d1-e250-430f-adcf-b10b664c4578']
+['26/08/2023', '22:11:17', 'Speed', 10056, 71.7571, 6.996, 0.0, 24.363976, 18.64456, 31.695975083857775]
+26/08/2023,22:11:17,Speed,10056,71.7571,6.996,0.0,24.363976,18.64456,31.695975083857775
+
+26/08/2023,22:11:17,Speed,10056,71.7571,6.996,0.0,24.363976,18.64456,31.695975083857775
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '22:21:28', 'iperf3', 'xxxx', 'xxxx', '0', '0', 21.287755565970002, 21.390934853635173, 0, 0, 20.41582765035545, 25.33298711584275]
+ <class 'str'>
+26/08/2023,22:22:31, iperf3, xxxx, xxxx,0.0,0.0,20.41582765035545,21.390934853635173,0.0,0.0
+
+26/08/2023,22:22:31, iperf3, xxxx, xxxx,0.0,0.0,20.41582765035545,21.390934853635173,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '67.9049', '3.59675', '0', '3101618', '2651182', '25773042', '35626559', 'https://www.speedtest.net/result/c/522654cf-3e0c-4e19-8d35-ff088bcf8796']
+['26/08/2023', '22:32:57', 'Speed', 10056, 67.9049, 3.59675, 0.0, 24.812944, 21.209456, 28.210537298582494]
+26/08/2023,22:32:57,Speed,10056,67.9049,3.59675,0.0,24.812944,21.209456,28.210537298582494
+
+26/08/2023,22:32:57,Speed,10056,67.9049,3.59675,0.0,24.812944,21.209456,28.210537298582494
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 22:33:07.882373  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '22:43:18', 'iperf3', 'xxxx', 'xxxx', '0', '0', 20.39992580597262, 20.4586709436557, 0, 0, 17.683218685411383, 22.132288689307202]
+ <class 'str'>
+26/08/2023,22:44:21, iperf3, xxxx, xxxx,0.0,0.0,17.683218685411383,20.4586709436557,0.0,0.0
+
+26/08/2023,22:44:21, iperf3, xxxx, xxxx,0.0,0.0,17.683218685411383,20.4586709436557,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '72.6741', '10.6908', '0', '3069050', '1910506', '34989468', '24134750', 'https://www.speedtest.net/result/c/39785a83-c41a-4386-bcf7-69ec094f0410']
+['26/08/2023', '22:54:50', 'Speed', 10056, 72.6741, 10.6908, 0.0, 24.5524, 15.284048, 46.117504220455885]
+26/08/2023,22:54:50,Speed,10056,72.6741,10.6908,0.0,24.5524,15.284048,46.117504220455885
+
+26/08/2023,22:54:50,Speed,10056,72.6741,10.6908,0.0,24.5524,15.284048,46.117504220455885
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '23:05:01', 'iperf3', 'xxxx', 'xxxx', '0', '0', 19.74481668983544, 19.787035361897473, 0, 0, 18.387523112168726, 22.933004626933677]
+ <class 'str'>
+26/08/2023,23:06:03, iperf3, xxxx, xxxx,0.0,0.0,18.387523112168726,19.787035361897473,0.0,0.0
+
+26/08/2023,23:06:03, iperf3, xxxx, xxxx,0.0,0.0,18.387523112168726,19.787035361897473,0.0,0.0
+
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '68.5612', '4.73475', '0', '3064555', '1914712', '32768755', '24215994', 'https://www.speedtest.net/result/c/652c6a9d-0874-421d-9337-3d2b2e316064']
+['26/08/2023', '23:16:31', 'Speed', 10056, 68.5612, 4.73475, 0.0, 24.51644, 15.317696, 19.877083390019834]
+26/08/2023,23:16:31,Speed,10056,68.5612,4.73475,0.0,24.51644,15.317696,19.877083390019834
+
+26/08/2023,23:16:31,Speed,10056,68.5612,4.73475,0.0,24.51644,15.317696,19.877083390019834
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '23:26:42', 'iperf3', 'xxxx', 'xxxx', '0', '0', 18.686206207145787, 18.72762584463463, 0, 0, 20.148655601301524, 24.533157512371158]
+ <class 'str'>
+26/08/2023,23:27:44, iperf3, xxxx, xxxx,0.0,0.0,20.148655601301524,18.72762584463463,0.0,0.0
+
+26/08/2023,23:27:44, iperf3, xxxx, xxxx,0.0,0.0,20.148655601301524,18.72762584463463,0.0,0.0
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 23:27:44.752122  speedtest error >   Cannot connect to dropbox, will try in 10 minues again
+hello from createoutput length  22
+11  
+ ['CenturyLink - Albuquerque', ' NM', '10056', '69.2127', '3.80775', '0', '3071589', '2371156', '26609777', '33207784', 'https://www.speedtest.net/result/c/13f465c5-99de-449c-a41b-cfded4bb8bc4']
+['26/08/2023', '23:38:21', 'Speed', 10056, 69.2127, 3.80775, 0.0, 24.572712, 18.969248, 24.536341684870422]
+26/08/2023,23:38:21,Speed,10056,69.2127,3.80775,0.0,24.572712,18.969248,24.536341684870422
+
+26/08/2023,23:38:21,Speed,10056,69.2127,3.80775,0.0,24.572712,18.969248,24.536341684870422
+
+['/usr/local/bin/timeout', '-k', '300', '200', '/usr/local/opt/python@3.11/bin/python3.11', '/Users/klein/git/LCWA/src/iperf_client.py', '-d', '30', '-n', '2', '-s', '63.229.162.245']
+error 
+runloop 20
+['26/08/2023', '23:48:32', 'iperf3', 'xxxx', 'xxxx', '0', '0', 20.23668961951495, 20.369907666973948, 0, 0, 18.854856227481513, 23.4653095895954]
+ <class 'str'>
+26/08/2023,23:49:34, iperf3, xxxx, xxxx,0.0,0.0,18.854856227481513,20.369907666973948,0.0,0.0
+
+26/08/2023,23:49:34, iperf3, xxxx, xxxx,0.0,0.0,18.854856227481513,20.369907666973948,0.0,0.0
+
+/LCWA/ROTW/     solv_2023-08-26speedfile.csv
+2023-08-26 23:49:34.706298  speedtest error >  Midnight save aborted due to network problem

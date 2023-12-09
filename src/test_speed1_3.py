@@ -587,7 +587,7 @@ class test_speed1():
         
         while(1):
             self.Run()
-            if(self.ConnectDropBox()):
+            if(self.ConnectDropBox):
                 counter = counter + 1
             
                 #if (counter==50):
@@ -616,12 +616,12 @@ class test_speed1():
     
                         if(counter > 0):
                             print (' now saving plotfile')
-                            self.DoPlots(textflag = False)
+                            temp = self.DoPlots(textflag = False)
                     except:
                         self.Logging(' Cannot connect to dropbox, will try in 10 minues again')
-                        time.sleep(10)
+                        #time.sleep(10)
  
-                        #time.sleep(10*60)
+                        time.sleep(10*60)
                     #counter = 0 
                 elif self.FlushTime(): # It is close to midnight, we flush the last file and exit to ensure we laod trhe latest software
                     try:
@@ -647,6 +647,7 @@ class test_speed1():
                     
  
             time.sleep(self.loop_time)
+            
 
     def FlushTime(self):
         
@@ -1043,7 +1044,7 @@ class test_speed1():
     
     def DoPlots(self , textflag = False):  # textflag is set tru at midnight so that we dump statistics in txt file 
         """ this creates the plot and ships it to dropbox"""
-        a =PC.MyPlot(self.input_path,self.input_filename,self.cryptofile,False)
+        a =PC.MyPlot(self.input_path,self.input_filename,self.cryptofile,False,mydropbox=self.dbx)
         print(self.input_path,'   ', self.input_filename)
         temp_file = self.input_path+self.input_filename
 
@@ -1066,7 +1067,13 @@ class test_speed1():
             #a.ConnectDropbox()
             #a.ConnectDropbox(tokenfile=self.cryptofile.strip('\n'))
             print('dropbox dir for plot ',self.dropdir)
-            a.PushFileDropbox(self.dropdir)
+            temp = a.ReturnNames(self.dropdir)
+ 
+            f=open(temp[1],"rb")
+            temp1 = self.dbx.files_upload(f.read(),temp[0]+temp[2],mode=dropbox.files.WriteMode('overwrite', None))
+
+
+            #a.PushFileDropbox(self.dropdir)
             if textflag:
                 a.Analyze(filename = self.textfile)
                 f.close()

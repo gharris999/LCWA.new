@@ -109,7 +109,7 @@
 
                     },
         "LC04" : {
-            "runmode" : "Both",
+            "runmode" : "Speedtest",
 
             "nondefault" : {
 
@@ -574,7 +574,7 @@
                     },
 
        "solveig.local" : {
-            "runmode" : "Both",
+            "runmode" : "Speedtest",
 
             "nondefault" : {
 

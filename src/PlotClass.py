@@ -360,9 +360,9 @@ class MyPlot(object):
          
          
          #connect to dropbox 
-        self.dbx=dropbox.Dropbox(self.data.strip('\n'))
+        self.dbx1=dropbox.Dropbox(self.data.strip('\n'))
 
-        self.myaccount = self.dbx.users_get_current_account()
+        self.myaccount = self.dbx1.users_get_current_account()
         print('***************************dropbox*******************\n\n\n')
         print( self.myaccount.name.surname , self.myaccount.name.given_name)
         print (self.myaccount.email)
@@ -373,12 +373,12 @@ class MyPlot(object):
         """This instantiate the ConnectDropbox class"""
         if(self.MyDropBox == None):  # we have no dropbox instance yet
             temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
-            self.dbx = temp.ConnectDropbox()
+            self.dbx1 = temp.ConnectDropbox()
         else:
-            self.dbx = self.MyDropBox
+            self.dbx1 = self.MyDropBox
                 
                 
-        self.myaccount = self.dbx.users_get_current_account()
+        self.myaccount = self.dbx1.users_get_current_account()
         print('***************************dropbox*******************\n\n\n')
         print( self.myaccount.name.surname , self.myaccount.name.given_name)
         print (self.myaccount.email)
@@ -395,13 +395,23 @@ class MyPlot(object):
         return stream.read().strip('\n')
    
     
+    def ReturnNames(self,dropdir):
+        """ Kludge since pushfile from test_speed does not work
+        I suspect a problem with the pointer"""
+        temp = [dropdir,self.output,self.dropbox_name]
+        return temp
+    
     
     def PushFileDropbox(self,dropdir):  
+        #print('pointer to dropbox in pushfile plotclass ', self.dbx)
+        print('shit')
+        
         f =open(self.output,"rb")
         #print('plotclass1  ',dropdir,self.output,self.dropbox_name)
-
-        a = self.dbx.files_upload(f.read(),dropdir+self.dropbox_name,mode=dropbox.files.WriteMode('overwrite', None))
-        return
+        #print('pointer to dropbox in pushfile plotclass ', self.dbx1)
+        temp = self.dbx1.files_upload(f.read(),dropdir+self.dropbox_name,mode=dropbox.files.WriteMode('overwrite', None))
+        
+        return 
        
 if __name__ == '__main__':
     #path = '/home/pi/speedfiles'
