@@ -147,7 +147,7 @@ class MyPlot(object):
         fig.savefig(self.output, bbox_inches='tight')
 
     
-        plt.show()
+        #plt.show()
 
         
         
@@ -401,7 +401,7 @@ class MyPlot(object):
         temp = [dropdir,self.output,self.dropbox_name]
         return temp
     
-    
+
     def PushFileDropbox(self,dropdir):  
         #print('pointer to dropbox in pushfile plotclass ', self.dbx)
         print('shit')
