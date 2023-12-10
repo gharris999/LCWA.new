@@ -249,7 +249,7 @@ class test_speed1():
         print('\n\n ***************************dropbox*******************\n')
 
     def ConnectDropBox(self):
-        """This instantiate the ConnectDropbox class"""
+        """This instantiates the ConnectDropbox class"""
 
         temp =  CD.DropBox(tokenfile=self.cryptofile.strip('\n'))  
         self.dbx = temp.ConnectDropbox()
